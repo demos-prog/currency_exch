@@ -56,6 +56,9 @@ function App() {
             currencies_list={currencies_list}
           />
         </span>
+        <span>
+          x <b>{course.toFixed(2)}</b> =
+        </span>
         <span className="item">
           <span id="result">{(amount * course).toFixed(2)}</span>
           <Select_item
