@@ -1,0 +1,25 @@
+#wrapper{
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100vh;
+}
+#content_wrap{
+  width: 100%;
+  height: min-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#result{
+  border: 1px double purple;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+}
+
+.item{
+  display: flex;
+}

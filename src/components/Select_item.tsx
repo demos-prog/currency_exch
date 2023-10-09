@@ -16,7 +16,7 @@ const Select_item: React.FC<SelectProps> = ({ currencies_list, initial_value, se
   };
 
   return (
-    <FormControl sx={{ minWidth: 120 }} size="small">
+    <FormControl id="id" sx={{ minWidth: 120 }} size="small">
       <Select
         value={initial_value}
         onChange={handleChange}

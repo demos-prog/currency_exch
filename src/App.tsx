@@ -41,24 +41,31 @@ function App() {
 
   if (isLoading) return 'Loading...';
   if (isError) return 'An error has occurred:';
+  console.log(currencies_list);
 
   const course: number = Object.values(data?.data)[0] as number;
 
   return (
-    <>
-      <Select_item
-        setState={setBase_currency}
-        initial_value={base_currency}
-        currencies_list={currencies_list}
-      />
-      <input type="number" defaultValue={1} ref={input_field} onChange={handle_input} />
-      <Select_item
-        setState={setTarget_currency}
-        initial_value={target_currency}
-        currencies_list={currencies_list}
-      />
-      {(amount * course).toFixed(2)}
-    </>
+    <div id='wrapper'>
+      <div id='content_wrap'>
+        <span className="item">
+          <input type="number" value={amount} defaultValue={1} ref={input_field} onChange={handle_input} />
+          <Select_item
+            setState={setBase_currency}
+            initial_value={base_currency}
+            currencies_list={currencies_list}
+          />
+        </span>
+        <span className="item">
+          <span id="result">{(amount * course).toFixed(2)}</span>
+          <Select_item
+            setState={setTarget_currency}
+            initial_value={target_currency}
+            currencies_list={currencies_list}
+          />
+        </span>
+      </div>
+    </div>
   )
 }
 
