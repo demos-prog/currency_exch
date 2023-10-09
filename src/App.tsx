@@ -18,7 +18,8 @@ function App() {
 
   function handle_input() {
     if (input_field.current) {
-      setAmount(+input_field.current.value);
+      const value: number = +input_field.current.value
+      if (value >= 0) setAmount(value);
     }
   }
 
