@@ -1,8 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, lazy, Suspense } from "react";
 import './null_styles.css';
 import loader from './assets/Eclipse-1s-200px.svg';
 import Select_item from "./components/Select_item";
+const Lazy_news = lazy(() => import('./components/News'));
 
 import './App.css'
 
@@ -73,6 +74,9 @@ function App() {
           />
         </span>
       </div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Lazy_news />
+      </Suspense>
     </div>
   )
 }
