@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState, useRef } from "react";
-import './null_styles.css'
+import './null_styles.css';
+import loader from './assets/Eclipse-1s-200px.svg';
 import Select_item from "./components/Select_item";
 
 import './App.css'
@@ -39,17 +40,20 @@ function App() {
       ),
   })
 
-  if (isLoading) return 'Loading...';
+  if (isLoading) return (
+    <div id="loader">
+      <img src={loader} alt="Loading..." />
+    </div>
+  )
   if (isError) return 'An error has occurred:';
-  console.log(currencies_list);
 
   const course: number = Object.values(data?.data)[0] as number;
 
   return (
     <div id='wrapper'>
-      <div id='content_wrap'>
+      <div id='content'>
         <span className="item">
-          <input type="number" value={amount} defaultValue={1} ref={input_field} onChange={handle_input} />
+          <input type="number" value={amount} ref={input_field} onChange={handle_input} />
           <Select_item
             setState={setBase_currency}
             initial_value={base_currency}
