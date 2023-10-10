@@ -1,7 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState, useRef, lazy, Suspense } from "react";
 import './null_styles.css';
-import loader from './assets/Eclipse-1s-200px.svg';
+
+import Loader from "./components/Loader";
 import Select_item from "./components/Select_item";
 const Lazy_news = lazy(() => import('./components/News'));
 
@@ -42,11 +43,9 @@ function App() {
       ),
   })
 
-  if (isLoading) return (
-    <div id="loader">
-      <img src={loader} alt="Loading..." />
-    </div>
-  )
+ 
+
+  if (isLoading) return <Loader/>;
   if (isError) return 'An error has occurred:';
 
   const course: number = Object.values(data?.data)[0] as number;
@@ -74,7 +73,7 @@ function App() {
           />
         </span>
       </div>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loader/>}>
         <Lazy_news />
       </Suspense>
     </div>
