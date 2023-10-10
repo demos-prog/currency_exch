@@ -11,7 +11,7 @@
 }
 
 .loader img {
-  height: 100px;
+  height: 115.75px;
 }
 
 #wrapper {
@@ -25,9 +25,8 @@
 }
 
 #content {
-  margin-top: 10vh;
+  margin-top: 70px;
   width: 100%;
-  height: min-content;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
