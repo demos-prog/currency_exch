@@ -69,7 +69,8 @@ function App() {
               currencies_list={currencies_list}
             />
           </span>
-        </div>}
+        </div>
+      }
 
       <Suspense fallback={<Loader />}>
         <Lazy_news />

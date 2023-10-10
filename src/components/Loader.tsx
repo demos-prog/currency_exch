@@ -4,7 +4,7 @@ import '../App.css';
 
 const Loader: React.FC = () => {
   return (
-    <div id="loader">
+    <div className="loader">
       <img src={loader} alt="Loading..." />
     </div>
   );
