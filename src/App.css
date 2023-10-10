@@ -53,4 +53,8 @@
     flex-direction: column;
     gap: 30px;
   }
+
+  .loader img {
+    height: 251.5px;
+  }
 }
