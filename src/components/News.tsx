@@ -19,9 +19,7 @@ const News: React.FC = () => {
   useEffect(() => {
     get_data().then((data) => {
       setData(data);
-      // window.localStorage.setItem("data", JSON.stringify(data))
     })
-    // setData(JSON.parse(window.localStorage.getItem('data') || 'null'));
   }, [])
 
   return (
