@@ -43,37 +43,35 @@ function App() {
       ),
   })
 
- 
-
-  if (isLoading) return <Loader/>;
   if (isError) return 'An error has occurred:';
-
-  const course: number = Object.values(data?.data)[0] as number;
 
   return (
     <div id='wrapper'>
-      <div id='content'>
-        <span className="item">
-          <input type="number" value={amount} ref={input_field} onChange={handle_input} />
-          <Select_item
-            setState={setBase_currency}
-            initial_value={base_currency}
-            currencies_list={currencies_list}
-          />
-        </span>
-        <span>
-          x <b>{course.toFixed(2)}</b> =
-        </span>
-        <span className="item">
-          <span id="result">{(amount * course).toFixed(2)}</span>
-          <Select_item
-            setState={setTarget_currency}
-            initial_value={target_currency}
-            currencies_list={currencies_list}
-          />
-        </span>
-      </div>
-      <Suspense fallback={<Loader/>}>
+      {isLoading ? <Loader />
+        :
+        <div id='content'>
+          <span className="item">
+            <input type="number" value={amount} ref={input_field} onChange={handle_input} />
+            <Select_item
+              setState={setBase_currency}
+              initial_value={base_currency}
+              currencies_list={currencies_list}
+            />
+          </span>
+          <span>
+            x <b>{(Object.values(data?.data)[0] as number).toFixed(2)}</b> =
+          </span>
+          <span className="item">
+            <span id="result">{(amount * (Object.values(data?.data)[0] as number)).toFixed(2)}</span>
+            <Select_item
+              setState={setTarget_currency}
+              initial_value={target_currency}
+              currencies_list={currencies_list}
+            />
+          </span>
+        </div>}
+
+      <Suspense fallback={<Loader />}>
         <Lazy_news />
       </Suspense>
     </div>
